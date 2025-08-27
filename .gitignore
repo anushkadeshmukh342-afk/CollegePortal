@@ -1,16 +1,25 @@
-# Python
+# Byte-compiled / cache files
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-*.db
-instance/
+*.py[cod]
+*$py.class
 
-# VSCode
+# Database files
+*.db
+*.sqlite3
+
+# Virtual environment
+venv/
+env/
+
+# OS files
+.DS_Store
+
+# VSCode settings
 .vscode/
 
-# Mac
-.DS_Store
- HEAD
+# Logs
+*.log
 
- d2b8729 (Add .gitignore to clean repo)
+# Backup files
+*.bak
+*.swp
