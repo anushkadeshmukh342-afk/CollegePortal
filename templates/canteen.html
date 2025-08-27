@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block title %}Canteen Menu - {{ super() }}{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4"><i class="fas fa-utensils me-2"></i>Canteen Menu & Schedule</h1>
+            <p class="lead">Daily menu with timing information</p>
+        </div>
+    </div>
+
+    {% if menu_items %}
+    {% for day in days %}
+    <div class="row mb-4">
+        <div class="col-12">
+            <h3 class="mb-3">{{ day }}</h3>
+            <div class="row">
+                <!-- Breakfast -->
+                <div class="col-lg-4 mb-3">
+                    <div class="card">
+                        <div class="card-header bg-warning text-dark">
+                            <h6 class="mb-0">
+                                <i class="fas fa-coffee me-2"></i>Breakfast (8:00 AM - 10:00 AM)
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            {% set breakfast_items = menu_items|selectattr("day", "equalto", day)|selectattr("meal_type", "equalto", "breakfast")|list %}
+                            {% if breakfast_items %}
+                            <ul class="list-unstyled mb-0">
+                                {% for item in breakfast_items %}
+                                <li class="d-flex justify-content-between align-items-center mb-2">
+                                    <span>{{ item.item_name }}</span>
+                                    {% if item.price %}
+                                    <span class="badge bg-success">₹{{ item.price }}</span>
+                                    {% endif %}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            {% else %}
+                            <p class="text-muted mb-0">No items available</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lunch -->
+                <div class="col-lg-4 mb-3">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h6 class="mb-0">
+                                <i class="fas fa-hamburger me-2"></i>Lunch (12:00 PM - 3:00 PM)
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            {% set lunch_items = menu_items|selectattr("day", "equalto", day)|selectattr("meal_type", "equalto", "lunch")|list %}
+                            {% if lunch_items %}
+                            <ul class="list-unstyled mb-0">
+                                {% for item in lunch_items %}
+                                <li class="d-flex justify-content-between align-items-center mb-2">
+                                    <span>{{ item.item_name }}</span>
+                                    {% if item.price %}
+                                    <span class="badge bg-success">₹{{ item.price }}</span>
+                                    {% endif %}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            {% else %}
+                            <p class="text-muted mb-0">No items available</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dinner/Snacks -->
+                <div class="col-lg-4 mb-3">
+                    <div class="card">
+                        <div class="card-header bg-info text-white">
+                            <h6 class="mb-0">
+                                <i class="fas fa-cookie-bite me-2"></i>Evening Snacks (4:00 PM - 7:00 PM)
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            {% set dinner_items = menu_items|selectattr("day", "equalto", day)|selectattr("meal_type", "equalto", "dinner")|list %}
+                            {% if dinner_items %}
+                            <ul class="list-unstyled mb-0">
+                                {% for item in dinner_items %}
+                                <li class="d-flex justify-content-between align-items-center mb-2">
+                                    <span>{{ item.item_name }}</span>
+                                    {% if item.price %}
+                                    <span class="badge bg-success">₹{{ item.price }}</span>
+                                    {% endif %}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            {% else %}
+                            <p class="text-muted mb-0">No items available</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+    {% else %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body text-center py-5">
+                    <i class="fas fa-utensils fa-4x text-muted mb-3"></i>
+                    <h3>No Menu Available</h3>
+                    <p class="text-muted">Canteen menu will be displayed here once available.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Canteen Information -->
+    <div class="row mt-5">
+        <div class="col-lg-6">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-clock me-2"></i>Operating Hours
+                    </h5>
+                    <ul class="mb-0">
+                        <li><strong>Monday to Friday:</strong> 8:00 AM - 7:00 PM</li>
+                        <li><strong>Saturday:</strong> 8:00 AM - 3:00 PM</li>
+                        <li><strong>Sunday:</strong> Closed</li>
+                        <li><strong>Holidays:</strong> Closed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-info-circle me-2"></i>Guidelines
+                    </h5>
+                    <ul class="mb-0">
+                        <li>Maintain queue discipline</li>
+                        <li>Keep the canteen area clean</li>
+                        <li>No outside food allowed</li>
+                        <li>Report any issues to canteen staff</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,270 @@
+{% extends "base.html" %}
+
+{% block title %}Hostel Information - {{ super() }}{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4"><i class="fas fa-bed me-2"></i>Campus Hostel Information</h1>
+            <p class="lead">Accommodation facilities, rules, fees, and application process</p>
+        </div>
+    </div>
+
+    <!-- Hostel Facilities -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2 class="mb-4">Hostel Facilities</h2>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <i class="fas fa-bed fa-lg"></i>
+                    </div>
+                    <h5 class="card-title">Accommodation</h5>
+                    <ul class="list-unstyled text-start">
+                        <li><i class="fas fa-check text-success me-2"></i>Single & Double occupancy rooms</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Furnished rooms with study table</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Attached bathroom facilities</li>
+                        <li><i class="fas fa-check text-success me-2"></i>24/7 electricity and water supply</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <i class="fas fa-utensils fa-lg"></i>
+                    </div>
+                    <h5 class="card-title">Dining</h5>
+                    <ul class="list-unstyled text-start">
+                        <li><i class="fas fa-check text-success me-2"></i>Mess facility with healthy meals</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Vegetarian and non-vegetarian options</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Breakfast, lunch, and dinner</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Special meals during festivals</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <i class="fas fa-shield-alt fa-lg"></i>
+                    </div>
+                    <h5 class="card-title">Security</h5>
+                    <ul class="list-unstyled text-start">
+                        <li><i class="fas fa-check text-success me-2"></i>24/7 security surveillance</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Entry/exit register maintenance</li>
+                        <li><i class="fas fa-check text-success me-2"></i>CCTV monitoring</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Warden supervision</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <i class="fas fa-wifi fa-lg"></i>
+                    </div>
+                    <h5 class="card-title">Connectivity</h5>
+                    <ul class="list-unstyled text-start">
+                        <li><i class="fas fa-check text-success me-2"></i>High-speed Wi-Fi internet</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Common room with TV</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Reading room facilities</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Recreation facilities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="bg-secondary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <i class="fas fa-washing-machine fa-lg"></i>
+                    </div>
+                    <h5 class="card-title">Laundry</h5>
+                    <ul class="list-unstyled text-start">
+                        <li><i class="fas fa-check text-success me-2"></i>Laundry facility available</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Washing machines and dryers</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Ironing facility</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Drying areas provided</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="bg-danger text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <i class="fas fa-first-aid fa-lg"></i>
+                    </div>
+                    <h5 class="card-title">Medical</h5>
+                    <ul class="list-unstyled text-start">
+                        <li><i class="fas fa-check text-success me-2"></i>First aid facility</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Medical emergency support</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Regular health checkups</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Nearby hospital tie-ups</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fee Structure -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2 class="mb-4">Fee Structure</h2>
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Boys Hostel</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Room Type</th>
+                                <th>Per Semester</th>
+                                <th>Per Year</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Single Occupancy</td>
+                                <td>₹25,000</td>
+                                <td>₹50,000</td>
+                            </tr>
+                            <tr>
+                                <td>Double Occupancy</td>
+                                <td>₹18,000</td>
+                                <td>₹36,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <small class="text-muted">*Includes mess charges</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Girls Hostel</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Room Type</th>
+                                <th>Per Semester</th>
+                                <th>Per Year</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Single Occupancy</td>
+                                <td>₹25,000</td>
+                                <td>₹50,000</td>
+                            </tr>
+                            <tr>
+                                <td>Double Occupancy</td>
+                                <td>₹18,000</td>
+                                <td>₹36,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <small class="text-muted">*Includes mess charges</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Process -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Application Process</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Required Documents:</h6>
+                            <ul>
+                                <li>Completed hostel application form</li>
+                                <li>College admission receipt</li>
+                                <li>Income certificate (if applicable)</li>
+                                <li>Medical fitness certificate</li>
+                                <li>Character certificate from previous institution</li>
+                                <li>Passport-size photographs (4 copies)</li>
+                                <li>Address proof and ID proof</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Application Steps:</h6>
+                            <ol>
+                                <li>Download application form from college website</li>
+                                <li>Fill the form completely and accurately</li>
+                                <li>Attach all required documents</li>
+                                <li>Submit to hostel office with application fee</li>
+                                <li>Wait for allocation based on availability</li>
+                                <li>Pay hostel fees upon room allocation</li>
+                                <li>Complete check-in process with warden</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="alert alert-warning mt-3">
+                        <i class="fas fa-info-circle me-2"></i>
+                        <strong>Note:</strong> Hostel admission is subject to availability. Priority given to outstation students.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rules and Regulations -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0">Rules and Regulations</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>General Rules:</h6>
+                            <ul>
+                                <li>Students must return to hostel by 9:00 PM</li>
+                                <li>Visitors allowed only during specified hours</li>
+                                <li>No smoking, drinking, or substance abuse</li>
+                                <li>Maintain cleanliness in rooms and common areas</li>
+                                <li>Respect hostel property and fellow residents</li>
+                                <li>Report any maintenance issues immediately</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Disciplinary Actions:</h6>
+                            <ul>
+                                <li>Warning for minor violations</li>
+                                <li>Fine for property damage</li>
+                                <li>Suspension from hostel for serious violations</li>
+                                <li>Expulsion for repeated offenses</li>
+                                <li>No refund of fees in case of expulsion</li>
+                                <li>Parents will be informed of any violations</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="alert alert-danger mt-3 mb-0">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <strong>Important:</strong> Violation of rules may lead to immediate termination of hostel accommodation.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

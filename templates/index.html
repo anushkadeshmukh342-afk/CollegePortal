@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-primary text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-4">Welcome to P R Pote Patil College</h1>
+                <p class="lead mb-4">Premier Engineering and Management Education in Amravati</p>
+                <p class="mb-4">Access all campus services, schedules, and information through our comprehensive digital platform. Stay connected with your college life through our QR-enabled information system.</p>
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="{{ url_for('timetable') }}" class="btn btn-light btn-lg">
+                        <i class="fas fa-calendar me-2"></i>View Timetable
+                    </a>
+                    <a href="{{ url_for('activities') }}" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-star me-2"></i>College Events
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <i class="fas fa-graduation-cap display-1"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Access Cards -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Quick Access</h2>
+        <div class="row g-4">
+            <!-- Academic Services -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-body text-center">
+                        <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fas fa-book-open fa-lg"></i>
+                        </div>
+                        <h5 class="card-title">Academic Services</h5>
+                        <p class="card-text">Access timetables, past papers, faculty contacts, and academic resources.</p>
+                        <div class="d-grid gap-2">
+                            <a href="{{ url_for('timetable') }}" class="btn btn-primary btn-sm">Timetable</a>
+                            <a href="{{ url_for('past_papers') }}" class="btn btn-outline-primary btn-sm">Past Papers</a>
+                            <a href="{{ url_for('faculty') }}" class="btn btn-outline-primary btn-sm">Faculty Directory</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campus Facilities -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-body text-center">
+                        <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fas fa-building fa-lg"></i>
+                        </div>
+                        <h5 class="card-title">Campus Facilities</h5>
+                        <p class="card-text">Find information about library, canteen, hostel, and other campus facilities.</p>
+                        <div class="d-grid gap-2">
+                            <a href="{{ url_for('library') }}" class="btn btn-success btn-sm">Library</a>
+                            <a href="{{ url_for('canteen') }}" class="btn btn-outline-success btn-sm">Canteen Menu</a>
+                            <a href="{{ url_for('hostel') }}" class="btn btn-outline-success btn-sm">Hostel Info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Services -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-body text-center">
+                        <div class="bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fas fa-users fa-lg"></i>
+                        </div>
+                        <h5 class="card-title">Student Services</h5>
+                        <p class="card-text">Transportation, clubs, activities, and student support services.</p>
+                        <div class="d-grid gap-2">
+                            <a href="{{ url_for('bus_timing') }}" class="btn btn-info btn-sm">Bus Timing</a>
+                            <a href="{{ url_for('clubs') }}" class="btn btn-outline-info btn-sm">College Clubs</a>
+                            <a href="{{ url_for('activities') }}" class="btn btn-outline-info btn-sm">Activities</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spiritual & Cultural -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-body text-center">
+                        <div class="bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fas fa-pray fa-lg"></i>
+                        </div>
+                        <h5 class="card-title">Spiritual & Cultural</h5>
+                        <p class="card-text">Aarti schedules, cultural events, and spiritual activities on campus.</p>
+                        <div class="d-grid gap-2">
+                            <a href="{{ url_for('aarti') }}" class="btn btn-warning btn-sm">Aarti Schedule</a>
+                            <a href="{{ url_for('events') }}" class="btn btn-outline-warning btn-sm">Events</a>
+                            <a href="{{ url_for('auditorium') }}" class="btn btn-outline-warning btn-sm">Auditorium</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guidelines & Policies -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-body text-center">
+                        <div class="bg-secondary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fas fa-clipboard-list fa-lg"></i>
+                        </div>
+                        <h5 class="card-title">Guidelines & Policies</h5>
+                        <p class="card-text">Uniform guidelines, policies, and important college information.</p>
+                        <div class="d-grid gap-2">
+                            <a href="{{ url_for('uniform') }}" class="btn btn-secondary btn-sm">Uniform Guidelines</a>
+                            <a href="{{ url_for('emergency') }}" class="btn btn-outline-secondary btn-sm">Emergency Contacts</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Placements -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-body text-center">
+                        <div class="bg-danger text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fas fa-briefcase fa-lg"></i>
+                        </div>
+                        <h5 class="card-title">Placements</h5>
+                        <p class="card-text">Information about company visits, placements, and career opportunities.</p>
+                        <div class="d-grid gap-2">
+                            <a href="{{ url_for('companies') }}" class="btn btn-danger btn-sm">Company Visits</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="mb-4 text-dark">Campus QR Scanner Project</h2>
+                <p class="lead text-dark">Our comprehensive digital platform provides centralized access to all college services and information. Students can easily access schedules, contact information, academic resources, and campus facilities through this unified system.</p>
+                
+                <div class="row mt-5">
+                    <div class="col-md-4 mb-4">
+                        <div class="text-center">
+                            <i class="fas fa-qrcode fa-3x text-primary mb-3"></i>
+                            <h5 class="text-dark">QR Code Access</h5>
+                            <p class="text-dark">Quick access to information through QR codes placed around campus</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="text-center">
+                            <i class="fas fa-mobile-alt fa-3x text-success mb-3"></i>
+                            <h5 class="text-dark">Mobile Friendly</h5>
+                            <p class="text-dark">Responsive design optimized for mobile devices and tablets</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="text-center">
+                            <i class="fas fa-clock fa-3x text-info mb-3"></i>
+                            <h5 class="text-dark">Real-time Updates</h5>
+                            <p class="text-dark">Live schedules, timings, and announcements for better coordination</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Location Map Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="mb-4">Find Our Campus</h2>
+                <p class="lead mb-4">P R Pote Patil College of Engineering and Management, Amravati</p>
+                
+                <div class="map-container mb-4">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.8!2d77.7523!3d20.9374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd6a264d1c7b6a1%3A0x8b9b8b8b8b8b8b8b!2sP%20R%20Pote%20Patil%20College%20of%20Engineering%20and%20Management%2C%20Amravati!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                        width="100%" 
+                        height="400" 
+                        style="border:0; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-map-marker-alt fa-2x text-primary mb-3"></i>
+                                <h5>Address</h5>
+                                <p class="text-muted">P R Pote Patil College of Engineering and Management<br>
+                                Amravati, Maharashtra, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-directions fa-2x text-success mb-3"></i>
+                                <h5>Get Directions</h5>
+                                <a href="https://www.google.com/maps/dir//P+R+Pote+Patil+College+of+Engineering+and+Management,+Amravati" 
+                                   class="btn btn-outline-primary" target="_blank">
+                                    <i class="fas fa-external-link-alt me-2"></i>Open in Google Maps
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

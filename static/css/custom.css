@@ -1,0 +1,275 @@
+/* Custom CSS for P R Pote Patil College Website */
+
+/* Timeline Styles for Events Page */
+.timeline {
+    position: relative;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: -2rem;
+    width: 2px;
+    background: var(--bs-border-color);
+    transform: translateX(-50%);
+}
+
+@media (max-width: 767.98px) {
+    .timeline-item::after {
+        left: 2rem;
+    }
+}
+
+/* Enhanced Card Hover Effects */
+.card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Badge Styles */
+.badge {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+/* Search Results Highlighting */
+.search-highlight {
+    background-color: var(--bs-warning);
+    padding: 0.1rem 0.2rem;
+    border-radius: 0.2rem;
+}
+
+/* Custom Button Styles */
+.btn {
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Table Responsive Improvements */
+.table-responsive {
+    border-radius: 0.375rem;
+    overflow: hidden;
+}
+
+/* Custom Alert Styles */
+.alert {
+    border: none;
+    border-radius: 0.5rem;
+}
+
+/* Loading Spinner for Dynamic Content */
+.spinner-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+/* Icon Styling */
+.fa, .fas, .far, .fal, .fab {
+    line-height: inherit;
+}
+
+/* Custom Progress Bar */
+.progress {
+    border-radius: 10px;
+}
+
+.progress-bar {
+    border-radius: 10px;
+}
+
+/* Enhanced Navigation */
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+    color: var(--bs-primary) !important;
+}
+
+/* Custom Dropdown Styling */
+.dropdown-menu {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border: none;
+}
+
+.dropdown-item {
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Footer Enhancements */
+footer {
+    margin-top: auto;
+}
+
+/* Form Control Enhancements */
+.form-control, .form-select {
+    border-radius: 0.5rem;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.form-control:focus, .form-select:focus {
+    box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+/* Custom Spacing */
+.section-padding {
+    padding: 4rem 0;
+}
+
+/* Responsive Text Sizing */
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    
+    .lead {
+        font-size: 1.1rem;
+    }
+}
+
+/* Custom Container Padding */
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Enhanced Card Headers */
+.card-header {
+    border-bottom: 1px solid var(--bs-border-color);
+    background-color: var(--bs-light);
+}
+
+/* Table Enhancements */
+.table thead th {
+    border-bottom: 2px solid var(--bs-border-color);
+    font-weight: 600;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > td {
+    background-color: var(--bs-gray-50);
+}
+
+/* Custom List Styling */
+.list-group-item {
+    border: 1px solid var(--bs-border-color);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.list-group-item:hover {
+    background-color: var(--bs-gray-50);
+}
+
+/* Enhanced Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--bs-primary), var(--bs-info));
+    color: white;
+}
+
+/* Custom Error States */
+.error-state {
+    color: var(--bs-danger);
+    text-align: center;
+    padding: 2rem;
+}
+
+.empty-state {
+    color: var(--bs-secondary);
+    text-align: center;
+    padding: 3rem;
+}
+
+/* Mobile-First Responsive Design */
+@media (max-width: 575.98px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .btn {
+        font-size: 0.875rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .navbar, .footer, .btn, .alert {
+        display: none !important;
+    }
+    
+    .card {
+        border: 1px solid #000 !important;
+        break-inside: avoid;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+}
+
+/* Accessibility Improvements */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus Styles for Better Accessibility */
+.btn:focus,
+.form-control:focus,
+.form-select:focus,
+.nav-link:focus {
+    outline: 2px solid var(--bs-primary);
+    outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .card {
+        border: 2px solid var(--bs-dark);
+    }
+    
+    .btn-outline-primary {
+        border-width: 2px;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
