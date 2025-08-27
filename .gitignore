@@ -11,3 +11,6 @@ instance/
 
 # Mac
 .DS_Store
+ HEAD
+
+ d2b8729 (Add .gitignore to clean repo)
