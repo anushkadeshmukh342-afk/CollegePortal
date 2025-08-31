@@ -103,7 +103,7 @@ class Comment(db.Model):
     content = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     is_visible = db.Column(db.Boolean, default=True)
-    ip_address = db.Column(db.String(45))  # For tracking purposes
+    ip_address = db.Column(db.String(45))  # For tracking purposes   
 class Admin(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)

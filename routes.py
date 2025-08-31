@@ -69,8 +69,9 @@ def activities():
 
 @app.route('/auditorium')
 def auditorium():
-    bookings = AuditoriumBooking.query.filter(AuditoriumBooking.date >= date.today()).all()
-    return render_template('auditorium.html', bookings=bookings)
+    today = date.today()
+    bookings = AuditoriumBooking.query.filter(AuditoriumBooking.date >= today).all()
+    return render_template('auditorium.html', bookings=bookings, today=today)
 
 @app.route('/faculty')
 def faculty():
