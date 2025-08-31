@@ -113,14 +113,17 @@
                     </li>
                 </ul>
                 
-                <!-- Search Form -->
-                <form class="d-flex" method="GET" action="{{ url_for('search') }}">
-                    <input class="form-control me-2" type="search" placeholder="Search..." name="q" value="{{ request.args.get('q', '') }}">
-                    <button class="btn btn-outline-primary" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
-            </div>
+                <!-- Comment Section Link -->
+<div class="d-flex">
+    <a href="{{ url_for('comments') }}" class="btn btn-outline-dark me-2">
+        <i class="fas fa-comments me-1"></i>
+        Comments
+    </a>
+    <a href="{{ url_for('admin_login') }}" class="btn btn-outline-dark">
+        <i class="fas fa-user-shield me-1"></i>
+        Admin
+    </a>
+</div>
         </div>
     </nav>
 
