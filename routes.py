@@ -5,7 +5,16 @@ from datetime import datetime, date
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 import os
+import pytz
+ist = pytz.timezone("Asia/Kolkata")
 
+@app.template_filter("ist_time")
+def ist_time_filter(value):
+    if not value:
+        return ""
+    utc_time = value.replace(tzinfo=pytz.utc)
+    ist_time = utc_time.astimezone(ist)
+    return ist_time.strftime("%d-%m-%Y %I:%M %p")
 @app.route('/')
 def index():
     return render_template('index.html')

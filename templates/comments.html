@@ -55,7 +55,7 @@
                     <div class="d-flex justify-content-between align-items-start mb-2">
                         <div>
                             <h6 class="card-title mb-1">{{ comment.name }}</h6>
-                            <small class="text-muted">{{ comment.created_at.strftime('%B %d, %Y at %I:%M %p') }}</small>
+                            <small class="text-muted">{{ comment.created_at | ist_time }}</small>
                         </div>
                     </div>
                     <p class="card-text">{{ comment.content }}</p>

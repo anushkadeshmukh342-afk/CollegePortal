@@ -91,7 +91,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <small>{{ comment.created_at.strftime('%m/%d/%Y %I:%M %p') }}</small>
+                                    <small>{{ comment.created_at | ist_time }}</small>
                                 </td>
                                 <td>
                                     {% if comment.is_visible %}
