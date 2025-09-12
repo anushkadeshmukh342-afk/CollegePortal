@@ -79,7 +79,6 @@ class Event(db.Model):
     time = db.Column(db.String(20))
     venue = db.Column(db.String(100))
     organizer = db.Column(db.String(100))
-    file_path = db.Column(db.String(200))  # Path to event PDF
 
 class Company(db.Model):
     id = db.Column(db.Integer, primary_key=True)
