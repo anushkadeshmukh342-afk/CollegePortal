@@ -61,17 +61,9 @@
                                     {% endif %}
                                     
                                     {% if event.venue %}
-                                    <div class="d-flex align-items-center text-muted mb-3">
+                                    <div class="d-flex align-items-center text-muted">
                                         <i class="fas fa-map-marker-alt me-2"></i>
                                         <span>{{ event.venue }}</span>
-                                    </div>
-                                    {% endif %}
-                                    
-                                    {% if event.file_path %}
-                                    <div class="mt-3">
-                                        <a href="{{ event.file_path }}" class="btn btn-primary btn-sm" target="_blank">
-                                            <i class="fas fa-file-pdf me-2"></i>View Event Details (PDF)
-                                        </a>
                                     </div>
                                     {% endif %}
                                 </div>
