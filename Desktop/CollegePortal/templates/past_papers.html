@@ -12,13 +12,13 @@
                     <select class="form-select" id="courseFilter">
                         <option value="">All Courses</option>
                         {% for course in courses %}
-                        <option value="{{ course }}">{{ course }}</option>
+                        <option value="{{ course[0] }}">{{ course[0] }}</option>
                         {% endfor %}
                     </select>
                     <select class="form-select" id="subjectFilter">
                         <option value="">All Subjects</option>
                         {% for subject in subjects %}
-                        <option value="{{ subject }}">{{ subject }}</option>
+                        <option value="{{ subject[0] }}">{{ subject[0] }}</option>
                         {% endfor %}
                     </select>
                 </div>
