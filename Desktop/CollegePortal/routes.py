@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for, flash, session, send_from_directory
+from flask import render_template, request, redirect, url_for, flash, session, send_from_directory, make_response
 from app import app, db
 from models import *
 from datetime import datetime, date
@@ -15,16 +15,46 @@ def ist_time_filter(value):
     ist_time = utc_time.astimezone(ist)
     return ist_time.strftime("%d-%m-%Y %I:%M %p")
 
-# Enhanced static file route for VSCode compatibility
+# Enhanced static file route for VSCode and cross-platform compatibility
 @app.route('/static/<path:filename>')
 def serve_static_files(filename):
-    """Custom static file serving route for VSCode compatibility"""
-    response = send_from_directory('static', filename)
-    # Disable caching for better development experience
-    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
-    response.headers['Pragma'] = 'no-cache'
-    response.headers['Expires'] = '0'
-    return response
+    """Custom static file serving route for VSCode and cross-device compatibility"""
+    try:
+        # Check if file exists in static folder
+        file_path = os.path.join('static', filename)
+        if not os.path.exists(file_path):
+            return f"File not found: {filename}", 404
+            
+        response = make_response(send_from_directory('static', filename))
+        
+        # Add proper headers based on file type
+        if filename.endswith('.pdf'):
+            response.headers['Content-Type'] = 'application/pdf'
+            response.headers['Content-Disposition'] = f'inline; filename={os.path.basename(filename)}'
+            # Enhanced PDF headers for cross-device compatibility
+            response.headers['Accept-Ranges'] = 'bytes'
+            response.headers['X-Content-Type-Options'] = 'nosniff'
+        elif filename.endswith(('.png', '.jpg', '.jpeg')):
+            ext = filename.split(".")[-1].lower()
+            response.headers['Content-Type'] = f'image/{"jpeg" if ext == "jpg" else ext}'
+        elif filename.endswith('.css'):
+            response.headers['Content-Type'] = 'text/css; charset=utf-8'
+        elif filename.endswith('.js'):
+            response.headers['Content-Type'] = 'application/javascript; charset=utf-8'
+            
+        # Enhanced caching and security headers for VSCode and development
+        response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+        response.headers['Pragma'] = 'no-cache'
+        response.headers['Expires'] = '0'
+        response.headers['Access-Control-Allow-Origin'] = '*'
+        response.headers['Access-Control-Allow-Methods'] = 'GET, HEAD, OPTIONS'
+        response.headers['Access-Control-Allow-Headers'] = 'Accept, Accept-Encoding, Authorization, Content-Type'
+        
+        return response
+        
+    except Exception as e:
+        app.logger.error(f"Error serving static file {filename}: {str(e)}")
+        return f"Error loading file: {filename}", 500
 
 @app.route('/')
 def index():
