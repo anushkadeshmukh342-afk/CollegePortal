@@ -1,8 +1,9 @@
-from flask import render_template, request, redirect, url_for, flash, session, send_from_directory, make_response
+from flask import render_template, request, redirect, url_for, flash, session
 from app import app, db
 from models import *
 from datetime import datetime, date
 from werkzeug.security import generate_password_hash, check_password_hash
+import os
 import os
 import pytz
 ist = pytz.timezone("Asia/Kolkata")
@@ -14,48 +15,6 @@ def ist_time_filter(value):
     utc_time = value.replace(tzinfo=pytz.utc)
     ist_time = utc_time.astimezone(ist)
     return ist_time.strftime("%d-%m-%Y %I:%M %p")
-
-# Enhanced static file route for VSCode and cross-platform compatibility
-@app.route('/static/<path:filename>')
-def serve_static_files(filename):
-    """Custom static file serving route for VSCode and cross-device compatibility"""
-    try:
-        # Check if file exists in static folder
-        file_path = os.path.join('static', filename)
-        if not os.path.exists(file_path):
-            return f"File not found: {filename}", 404
-            
-        response = make_response(send_from_directory('static', filename))
-        
-        # Add proper headers based on file type
-        if filename.endswith('.pdf'):
-            response.headers['Content-Type'] = 'application/pdf'
-            response.headers['Content-Disposition'] = f'inline; filename={os.path.basename(filename)}'
-            # Enhanced PDF headers for cross-device compatibility
-            response.headers['Accept-Ranges'] = 'bytes'
-            response.headers['X-Content-Type-Options'] = 'nosniff'
-        elif filename.endswith(('.png', '.jpg', '.jpeg')):
-            ext = filename.split(".")[-1].lower()
-            response.headers['Content-Type'] = f'image/{"jpeg" if ext == "jpg" else ext}'
-        elif filename.endswith('.css'):
-            response.headers['Content-Type'] = 'text/css; charset=utf-8'
-        elif filename.endswith('.js'):
-            response.headers['Content-Type'] = 'application/javascript; charset=utf-8'
-            
-        # Enhanced caching and security headers for VSCode and development
-        response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
-        response.headers['Pragma'] = 'no-cache'
-        response.headers['Expires'] = '0'
-        response.headers['Access-Control-Allow-Origin'] = '*'
-        response.headers['Access-Control-Allow-Methods'] = 'GET, HEAD, OPTIONS'
-        response.headers['Access-Control-Allow-Headers'] = 'Accept, Accept-Encoding, Authorization, Content-Type'
-        
-        return response
-        
-    except Exception as e:
-        app.logger.error(f"Error serving static file {filename}: {str(e)}")
-        return f"Error loading file: {filename}", 500
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -114,9 +73,8 @@ def hostel():
 
 @app.route('/activities')
 def activities():
-    today = date.today()
-    events = Event.query.filter(Event.date >= today).all()
-    return render_template('activities.html', events=events, today=today)
+    events = Event.query.filter(Event.date >= date.today()).all()
+    return render_template('activities.html', events=events)
 
 @app.route('/auditorium')
 def auditorium():
@@ -133,14 +91,12 @@ def faculty():
 @app.route('/events')
 def events():
     event_list = Event.query.all()
-    today = date.today()
-    return render_template('events.html', events=event_list, today=today)
+    return render_template('events.html', events=event_list)
 
 @app.route('/companies')
 def companies():
     company_list = Company.query.all()
-    today = date.today()
-    return render_template('companies.html', companies=company_list, today=today)
+    return render_template('companies.html', companies=company_list)
 
 @app.route('/innovation_hub')
 def innovation_hub():
