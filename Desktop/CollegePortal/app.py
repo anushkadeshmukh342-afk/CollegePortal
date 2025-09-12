@@ -12,10 +12,8 @@ class Base(DeclarativeBase):
 
 db = SQLAlchemy(model_class=Base)
 
-# Create the Flask app with enhanced static file configuration for VSCode compatibility
-app = Flask(__name__, 
-            static_folder='static', 
-            static_url_path='/static')
+# Create the Flask app
+app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET", "dev_secret_key_change_in_production")
 
 # Configure database
@@ -37,5 +35,4 @@ with app.app_context():
     db.create_all()
 
 if __name__ == '__main__':
-    # Enhanced configuration for VSCode compatibility
-    app.run(host='0.0.0.0', port=5001, debug=True, threaded=True)
+    app.run(host='0.0.0.0', port=5001, debug=True)
