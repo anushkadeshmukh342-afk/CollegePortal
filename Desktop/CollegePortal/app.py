@@ -4,7 +4,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase
 
-# Configure logging
+# Configure logging for debugging
 logging.basicConfig(level=logging.DEBUG)
 
 class Base(DeclarativeBase):
@@ -12,9 +12,9 @@ class Base(DeclarativeBase):
 
 db = SQLAlchemy(model_class=Base)
 
-# Create the Flask app
-app = Flask(__name__,
-            static_folder='static',
+# Create the Flask app with enhanced static file configuration for VSCode compatibility
+app = Flask(__name__, 
+            static_folder='static', 
             static_url_path='/static')
 app.secret_key = os.environ.get("SESSION_SECRET", "dev_secret_key_change_in_production")
 
@@ -25,7 +25,7 @@ app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
     "pool_pre_ping": True,
 }
 
-# Initialize extensions
+# Initialize the app with the extension
 db.init_app(app)
 
 # Import routes after app creation
@@ -37,6 +37,5 @@ with app.app_context():
     db.create_all()
 
 if __name__ == '__main__':
-    # Use port from environment for Render, fallback to 5001 locally
-    port = int(os.environ.get("PORT", 5001))
-    app.run(host='0.0.0.0', port=port, debug=True, threaded=True)
+    # Enhanced configuration for VSCode compatibility
+    app.run(host='0.0.0.0', port=5001, debug=True, threaded=True)
